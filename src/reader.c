@@ -4,7 +4,7 @@
 
 char *read_line() {
   char *line = NULL;
-  ssize_t bufsize = 0;
+  size_t bufsize = 0;
 
   if (getline(&line, &bufsize, stdin) == -1) {
     if (feof(stdin)) {

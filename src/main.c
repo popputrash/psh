@@ -24,7 +24,10 @@ void psh_loop(void) {
 
     line = read_line();
     args = parse_args(line);
-    status = psh_execute(args);
+		
+		pipeline_t pipeline = parse_pipeline(args);
+		status = psh_execute_pipeline(pipeline);
+		free_pipeline(&pipeline);
 
 		free(line);
 		free(args);
